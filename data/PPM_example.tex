@@ -1,0 +1,30 @@
+\documentclass{article}
+\begin{document}
+  \begin{tabular}{crrl}
+    Input & Output & Prob. of the output & Related contexts\\
+    \hline
+    {\tt a} & $c_{M[{\cal C}[0]]}(\mathtt{ESC})c_{M[{\cal C}[-1]]}(\mathtt{a})$ & $1\cdot 1/(r+1)$ & $M[{\cal C}[0]]=\{\mathtt{ESC},2~\mathtt{a},1\}$\\
+    {\tt b} & $c_{M[\texttt{a}]}(\mathtt{ESC})c_{M[{\cal C}[0]]}(\mathtt{ESC})c_{M[{\cal C}[-1]]}(\mathtt{b})$ & $1\cdot 2/3\cdot 1/r$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{b},1\}$\\
+    ~       & & & $M[c[0]]=\{\mathtt{ESC},3~\mathtt{a},1~\mathtt{b},1\}$\\
+    {\tt a} & $c_{M[\texttt{b}]}(\mathtt{ESC})c_{M[{\cal C}[0]]}(\mathtt a)$ & $1\cdot 1/3$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathtt{ESC},3~\mathtt{a},2~\mathtt{b},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $1/2$ & $M[{\cal C}[\mathtt{a}]]=\{\mathtt{ESC},1~\mathtt{b},2\}$\\
+    {\tt c} & $c_{M[\mathtt{b}]}(\mathtt{ESC})c_{M[{\cal C}[0]]}(\mathtt{ESC})c_{M[{\cal C}[-1]]}(\mathtt c)$ & $1/2\cdot 1/4\cdot 1/(r-1)$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},1~\mathtt{c},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathtt{ESC},4~\mathtt{a},2~\mathtt{b},1~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\texttt{c}]}(\mathtt{ESC})c_{M[{\cal C}[0]]}(\mathtt b)$ & $1\cdot 1/5$ & $M[\mathtt{c}]=\{\mathtt{ESC},1~\mathtt{b},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathtt{ESC},4~\mathtt{a},2~\mathtt{b},2~\mathtt{c},1\}$\\ 
+    {\tt a} & $c_{M[\mathtt{b]}}(\mathtt a)$ & $1/3$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},2~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $2/3$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{b},3\}$\\
+    {\tt a} & $c_{M[\mathtt{b}]}(\mathtt a)$ & $2/4$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},3~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $3/4$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{b}]}(\mathtt a)$ & $3/5$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},4~\mathtt{c},1\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt{ESC})c_{M[{\cal C}[0]]}(\mathtt a)$ & $1/5\cdot 2/4$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},1~\mathtt{b},4\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathtt{ESC},4~\mathtt{a},3~\mathtt{b},2~\mathtt{c},1\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $1/6$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},2~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $2/7$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},3~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $3/8$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},4~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $4/9$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},5~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $5/10$ & $M[\mathtt{a}]=\{\mathtt{ESC},1~\mathtt{a},6~\mathtt{b},4\}$
+  \end{tabular}
+\end{document}
+

@@ -9,13 +9,13 @@
   ~ & $c(\mathtt{a}|M[{\cal C}[-1]])$ & $1/(r+1)$ & $M[{\cal C}[-1]]=\{A\}$\\
   {\tt b} & $c(\mathtt{ESC}|M[\texttt{a}])$ & $1$ & $M[\mathtt{a}]=\{\mathtt{ESC},2~\mathtt{b},1\}$\\
   ~ & $c(\mathtt{ESC}|M[{\cal C}[0]])$ & $2/3$ & $M[c[0]]=\{\mathtt{ESC},3~\mathtt{a},1~\mathtt{b},1\}$\\
-  ~ & $c(\mathtt{b}|M[{\cal C}[-1]])$ & $1/r$ & $M[{\cal C}[-1]]=\{A-\{\mathtt{a}\}\}$ \\
+  ~ & $c(\mathtt{b}|M[{\cal C}[-1]])$ & $1/r$ & $M[{\cal C}[-1]]=\{A\setminus\{\mathtt{a}\}\}$ \\
   {\tt a} & $c(\mathtt{ESC}|M[\texttt{b}])$ & $1$ & $M[\mathtt{b}]=\{\mathtt{ESC},2~\mathtt{a},1\}$\\
  ~ & $c(\mathtt a|M[{\cal C}[0]])$ & $1/5$ & $M[{\cal C}[0]]=\{\mathtt{ESC},3~\mathtt{a},2~\mathtt{b},1\}$\\
   {\tt b} & $c(\mathtt b|M[\mathtt{a}])$ & $1/3$ & $M[\mathtt{a}]=\{\mathtt{ESC},2~\mathtt{b},2\}$\\
   {\tt c} & $c(\mathtt{ESC}|M[\mathtt{b}])$ & $1/2$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},1~\mathtt{c},1\}$\\
   ~ & $c(\mathtt{ESC}|M[{\cal C}[0]])$ & $3/6$ & $M[{\cal C}[0]]=\{\mathtt{ESC},4~\mathtt{a},2~\mathtt{b},1~\mathtt{c},1\}$\\
-  ~ & $c(\mathtt c|M[{\cal C}[-1]])$ & $1/(r-1)$ & $M[C[-1]]=\{A-\{\mathtt{a},\mathtt{b}\}\}$\\
+  ~ & $c(\mathtt c|M[{\cal C}[-1]])$ & $1/(r-1)$ & $M[C[-1]]=\{A\setminus\{\mathtt{a},\mathtt{b}\}\}$\\
   {\tt b} & $c(\mathtt{ESC}|M[\texttt{c}])$ & $1$ & $M[\mathtt{c}]=\{\mathtt{ESC},2~\mathtt{b},1\}$\\
   ~ & $c(\mathtt b|M[{\cal C}[0]])$ & $1/8$ & $M[{\cal C}[0]]=\{\mathtt{ESC},4~\mathtt{a},2~\mathtt{b},2~\mathtt{c},1\}$\\
   {\tt a} & $c(\mathtt a|M[\mathtt{b]})$ & $1/3$ & $M[\mathtt{b}]=\{\mathtt{ESC},1~\mathtt{a},2~\mathtt{c},1\}$\\

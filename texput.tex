@@ -1,0 +1,358 @@
+\title{Probabilistic models}
+\author{Vicente González Ruiz}
+\maketitle
+\tableofcontents
+
+\section{Funtionality}
+\begin{itemize}
+\item Compute the probabilities of the symbols (see
+  Figure~\ref{fig:compresion_entropica}).
+\item Both, the encoder and the decoder must be syncronized.
+\end{itemize}
+
+\section{Static models}
+\begin{itemize}
+\item Static models are the simplest ones because they suppose that
+  the probabilities of the symbols remain constant through the
+  compression/decompression.
+\item In this case, variable-length code-words can be precomputed.
+\item Static models are very common in codecs such
+  as JPEG and MPEG (audio and video).
+\end{itemize}
+
+\section*{Let's go the the lab!}
+\begin{enumerate}
+\item Download
+  \url{http://www.ace.ual.es/~vruiz/doctorado/text-compression.tar.gz}
+  and \texttt{make huff\_s0}.
+\item Encode each image of
+  \href{http://www.ace.ual.es/~vruiz/images/}{The Test Image
+    Corpus} using the  codec. Continue filling the table:
+\begin{verbatim}
+    Codec | lena boats pepers zelda
+----------+------------------------
+      RLE | ....  ....   ....  ....
+  BWT+RLE | ....  ....   ....  ....
+     LZSS | ....  ....   ....  ....
+      LZW | ....  ....   ....  ....
+  huff_s0 | ....  ....   ....  ....
+\end{verbatim}
+\item Check that the \texttt{huff\_s0} codec is lossless.
+\end{enumerate}
+
+\section{Adaptive models}
+\begin{itemize}
+\item The probabilities of the symbols are computed while they arrive to the compressor.
+\item In general, the compression ratios that adaptive models reach are better than static model's ones, because the
+  probabilities of the symbols are localy computed (think of the sequence `aaaaaaaaaaaaaabbbbbbbbbbbbbbb`).
+\end{itemize}
+
+\section{Encoding}
+\begin{enumerate}
+\item Asign the same probability to all the symbols of the source alphabet.
+\item While the input if not exhausted:
+  \begin{enumerate}
+  \item Encode the next symbol.
+  \item Update (increase) its probability.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Decoding}
+\begin{enumerate}
+\item Identical to the step 1 of the encoder.
+\item While the input is not exhausted:
+  \begin{enumerate}
+  \item Decode the next symbol.
+  \item Identical to the step 2.b of the encoder.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Let's go the the lab!}
+\begin{enumerate}
+\item Download
+  \url{http://www.ace.ual.es/~vruiz/doctorado/progs.tar.gz} and
+  \texttt{make huff\_a0} and \texttt{make arith\_a0}.
+\item Encode each image of
+  \href{http://www.ace.ual.es/~vruiz/images/}{The Test Image
+    Corpus} using the  codec. Continue filling the table:
+\begin{verbatim}
+    Codec | lena boats pepers zelda Average
+----------+--------------------------------
+        : |    :     :      :     :       :
+  huff_s0 | ....  ....   ....  ....    ....
+  huff_a0 | ....  ....   ....  ....    ....
+ arith_a0 | ....  ....   ....  ....    ....
+\end{verbatim}
+\item Remember to check that both codecs are lossless.
+\end{enumerate}
+
+\section{Initially empty models}
+\label{modelo_probabilistico_adaptativo_vacio}
+\begin{itemize}
+\item The smaller the number of symbols used by the model, the higher
+  the probabilities, and therefore, the better the compression ratios.
+\item An initially empty model only stores the $\mathtt{ESC}$(cape) symbol (a
+  symbol that it is used by the encoder only when a new symbol is
+  found and therefore, it must be part of the encoder's and decoder's models).
+\item We assume that arithmetic coding is used and therefore, when we
+  input or output $c(s)$, we are transmitting $I(s)$ bits of code.
+\end{itemize}
+
+\section{Encoder}
+\begin{enumerate}
+\item Set the probability of the $\mathtt{ESC}$ symbol to $1.0$ (and the probability of
+  the rest of the symbols to $0.0$).
+\item While the input is not exhausted:
+  \begin{enumerate}
+  \item $s\leftarrow$ next symbol.
+  \item If $s$ has been found before, then:
+    \begin{enumerate}
+    \item Output $c(s)$ (encode).
+    \end{enumerate}
+  \item Else:
+    \begin{enumerate}
+    \item Output $c(\mathtt{ESC})$.
+    \item Output a raw symbol $s$.
+    \end{enumerate}
+  \item Update $p(s)$.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Decoder}
+\begin{enumerate}
+\item Identical to the step 1 of the encoder.
+\item While the input is not exhausted:
+  \begin{enumerate}
+  \item $c(s)\leftarrow $ next code-word.
+  \item Decode $s$.
+  \item If $s=\mathtt{ESC}$, then:
+    \begin{enumerate}
+    \item Input a raw symbol $s$.
+    \end{enumerate}
+  \item Update $p(s)$.
+  \item Output $s$.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Let's go the the lab!}
+\begin{enumerate}
+\item \texttt{make arith-n-c} and \texttt{make arith-n-d}.
+\item
+\begin{verbatim}
+         Codec | lena boats pepers zelda Average
+---------------+--------------------------------
+             : |    :     :      :     :       :
+arith-n-c -o 0 | ....  ....   ....  ....    .... #1
+ BWT | ahuff_0 | ....  ....   ....  ....    ....
+      bzip2 -9 | ....  ....   ....  ....    .... #2
+       gzip -9 | ....  ....   ....  ....    .... #3
+
+#1 -> Similar to arith_a0 but using an initially
+      empty model.
+
+#2 -> Similar to BWT | ahuff_0
+
+#3 -> Similar to LZ77 + ahuff_0
+\end{verbatim}
+\item Check the reversibility.
+\end{enumerate}
+
+\section{Models with memory}
+\begin{itemize}
+\item In most cases, the probability of a symbol depends on its
+  neighborhood (context).
+\item The higher the memory of the model (the context), the higher the
+  accuracy of the predictions (probabilities), and therefore, the
+  lower the length of the code-words \cite{Cleary.PPM}.
+\item Let ${\cal C}[i]$ the last $i$ encoded symbols and $p(s|{\cal C}[i])$ the
+  probability that the symbol $s$ follows the context ${\cal C}[i]$.
+\item Let $k$ the maximal order of the prediction (i.e. the largest
+  number of symbols of ${\cal C}[]$ that are going to be used as the
+  actual context). Notice that ${\cal C}[0]=\varnothing$ and the model
+  has no memory.
+\item We suppose that arithmetic coding is used and therefore, when we
+  input or output $c(s)$, we are transmitting $I(s)$ bits of code.
+\item Let $r$ the size of the source alphabet.
+\end{itemize}
+
+\section{Encoder}
+\begin{enumerate}
+\item Create an empty model for every possible context of length $0\le i \le k$.
+\item Create an non-empty model for $k=-1$.
+\item While the input is not exhausted:
+  \begin{enumerate}
+  \item $s\leftarrow$ Input ${\log_2(r)}$ bits. \# Input a symbol.
+  \item $i\leftarrow k$ (except for the first symbol, where
+    $i\leftarrow 0$).
+  \item $i\leftarrow k$ (except for the first symbol, where
+    $i\leftarrow 0$):
+    \begin{enumerate}
+    \item Output $\leftarrow c(\text{ESC}|{\cal C}[i])$.
+    \item Update $p(\text{ESC}|{\cal C}[i])$.
+    \item Update $p(s|{\cal C}[i])$ (insert $s$ into the ${\cal C}[i]$ context).
+    \item $i\leftarrow i-1$.
+    \end{enumerate}
+  \item Output $\leftarrow c(s|{\cal C}[i])$. The symbols that were found in the models for
+       contexts with order $>i$ must be excluded of the actual (${\cal C}[i]$) context-model because, for sure, $s$ is not any of them.
+  \item If $i\ge 0$, update $p(s|{\cal C}[i])$.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Example}
+\begin{itemize}
+\item Let $r=256$ the size of the source alphabet.
+\item The probabilistic model $M[{\cal C}[-1]]$ (for the special context
+  ${\cal C}[-1]$) is static, non empty and has an special symbol $\mathtt{EOF}$
+  (End Of File) that is going to be used when the compression has
+  finished:
+  $$M[{\cal C}[-1]]=\{0,1~1,1~\cdots~\mathtt{a},1~\mathtt{b},1~\cdots~255,1~\mathtt{EOF},1\}=A.$$
+  In a pair $(a,b)$, $a$ is the symbol and $b$ is its probability (represented by a counter of ocurrences of $s$ in the processed input until that moment).
+
+\item $M[{\cal C}[0]]$ is adaptative and empty:
+  $$M[{\cal C}[0]]=\{\mathtt{ESC},1\}.$$
+
+\item In this example (for the sake of the simplicity), the maximal
+  order of the prediction $k=1$ (we only remember the previous
+  symbol). Therefore, there are $r=256$ probabilistic models:
+  $$M[{\cal C}[1]]=\{\mathtt{ESC},1\}, 0\le {\cal C}[1]\le r.$$
+
+\item In this example (for the sake of the simplicity), the maximal
+  order of the prediction $k=1$ (we only remember the previous
+  symbol). Therefore, there are $r=256$ probabilistic models:
+  $$M[{\cal C}[1]]=\{\mathtt{ESC},1\}, 0\le {\cal C}[1]\le r.$$
+
+  \begin{enumerate}
+  \item [3.a] $s\leftarrow \mathtt{a}$.
+  \item [3.b] $i\leftarrow 0$ (we don't know the previous symbol).
+  \item [3.c] $p(\mathtt{a}|{\cal C}[0])=0$ (the context $M[C[0]]$ has only the $\mathtt{ESC}$ symbol, $M[C[0]]=\{\mathtt{ESC},1\}$).
+  \item [3.c.i] Output $\leftarrow c(\mathtt{ESC}|{\cal C}[0])$ (in fact, zero bits because 
+      $l(c(\mathtt{ESC}|{\cal C}[0]))=0$).
+  \item [3.c.ii] Update $p(\mathtt{ESC}|{\cal C}[0])$ (now, $M[C[0]]=\{\mathtt{ESC},2\}$).
+  \item [3.c.iii] [3.C.c] Insert symbol $\mathtt{a}$ into
+    $M[{\cal C}[0]]=\{\mathtt{ESC},2~\mathtt{a},1\}$.
+  \item [3.c.iv] \item [3.c.iv]
+  \item [3.c]  $p(\mathtt{a}|{\cal C}[-1])\neq 0$.
+  \item [3.d] Output $\leftarrow c(\mathtt{a}|{\cal C}[-1])$ where
+    $p(\mathtt{a}|{\cal C}[-1]) = 1/(256+1)$.
+  \end{enumerate}
+  \item Encoding of the second symbol (\texttt{b}):
+  \begin{enumerate}
+  \item [3.a] $s\leftarrow \mathtt{b}$.
+  \item [3.b] $i\leftarrow 1$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[1])=0$ because ${\cal C}[1]=\mathtt{a}$ andv$M[\mathtt{a}]=\{\mathtt{ESC},1\}$.
+  \item [3.c.i] Output $\leftarrow c(\mathtt{ESC}|\mathtt{a})$ with $l(c(\mathtt{ESC}|\mathtt{a}))=0$.
+  \item [3.c.ii] Update $p(\mathtt{ESC})$ in $M[\mathtt{a}]$ (now, $M[a]=\{\mathtt{ESC},2\}$).
+  \item [3.c.iii] Insert $\mathtt{b}$ into $M[\mathtt{a}]=\{\mathtt{ESC},2~ \mathtt{b},1\}$.
+  \item [3.c.iv] $i\leftarrow 0$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[0])=0$ because $M[{\cal C}[0]]=\{\mathtt{ESC},2~\texttt{a},1\}$.
+  \item [3.c.i] Output $\leftarrow c(\mathtt{ESC}|{\cal C}[0])$, where $p(\mathtt{ESC}|{\cal C}[0]) = 2/3$.
+  \item [3.c.ii] Update $p(\mathtt{ESC}|{\cal C}[0])$ (now, the count of $\mathtt{ESC}$ is $3$).
+  \item [3.c.iii] Insert $\mathtt{b}$ into $M[{\cal C}[0]] = \{\mathtt{ESC},3~\mathtt{a},1~\mathtt{b},1\}$.
+  \item [3.c.iv] $i\leftarrow -1$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[-1])\neq 0$.
+  \item [3.d] Output $\leftarrow c(\mathtt{b}|{\cal C}[-1])$ where $p(\mathtt{b}|{\cal C}[-1]) = 1/r$. The symbol $\mathtt{a}$ has been excluded of the calculus of the probability of $\mathtt{b}$ for context $C[-1]$ because $\mathtt{a}\in M[{\cal C}[0]] = \{\mathtt{ESC},3~ \mathtt{a},1~ \mathtt{b},1\}$.
+      \end{enumerate}
+\end{itemize}
+
+\begin{figure}
+\begin{center}
+  \begin{tabular}{crrl}
+    Input & Output & Prob. of the output & Related contexts\\
+    \hline
+    {\tt a} & $c_{M[{\cal C}[0]]}(\mathsf{ESC})c_{M[{\cal C}[-1]]}(\mathtt{a})$ & $1\cdot 1/(r+1)$ & $M[{\cal C}[0]]=\{\mathsf{ESC},2~\mathtt{a},1\}$\\
+    {\tt b} & $c_{M[\texttt{a}]}(\mathsf{ESC})c_{M[{\cal C}[0]]}(\mathsf{ESC})c_{M[{\cal C}[-1]]}(\mathtt{b})$ & $1\cdot 2/3\cdot 1/r$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},1\}$\\
+    ~       & & & $M[c[0]]=\{\mathsf{ESC},3~\mathtt{a},1~\mathtt{b},1\}$\\
+    {\tt a} & $c_{M[\texttt{b}]}(\mathsf{ESC})c_{M[{\cal C}[0]]}(\mathtt a)$ & $1\cdot 1/3$ & $M[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathsf{ESC},3~\mathtt{a},2~\mathtt{b},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $1/2$ & $M[{\cal C}[\mathtt{a}]]=\{\mathsf{ESC},1~\mathtt{b},2\}$\\
+    {\tt c} & $c_{M[\mathtt{b}]}(\mathsf{ESC})c_{M[{\cal C}[0]]}(\mathsf{ESC})c_{M[{\cal C}[-1]]}(\mathtt c)$ & $1/2\cdot 1/4\cdot 1/(r-1)$ & $M[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},1~\mathtt{c},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathsf{ESC},4~\mathtt{a},2~\mathtt{b},1~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\texttt{c}]}(\mathsf{ESC})c_{M[{\cal C}[0]]}(\mathtt b)$ & $1\cdot 1/5$ & $M[\mathtt{c}]=\{\mathsf{ESC},1~\mathtt{b},1\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathsf{ESC},4~\mathtt{a},2~\mathtt{b},2~\mathtt{c},1\}$\\ 
+    {\tt a} & $c_{M[\mathtt{b]}}(\mathtt a)$ & $1/3$ & $M[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},2~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $2/3$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},3\}$\\
+    {\tt a} & $c_{M[\mathtt{b}]}(\mathtt a)$ & $2/4$ & $M[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},3~\mathtt{c},1\}$\\
+    {\tt b} & $c_{M[\mathtt{a}]}(\mathtt b)$ & $3/4$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{b}]}(\mathtt a)$ & $3/5$ & $M[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},4~\mathtt{c},1\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathsf{ESC})c_{M[{\cal C}[0]]}(\mathtt a)$ & $1/5\cdot 2/4$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},1~\mathtt{b},4\}$\\
+    ~       & & & $M[{\cal C}[0]]=\{\mathsf{ESC},4~\mathtt{a},3~\mathtt{b},2~\mathtt{c},1\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $1/6$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},2~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $2/7$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},3~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $3/8$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},4~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $4/9$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},5~\mathtt{b},4\}$\\
+    {\tt a} & $c_{M[\mathtt{a}]}(\mathtt a)$ & $5/10$ & $M[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{a},6~\mathtt{b},4\}$
+  \end{tabular}
+\end{center}
+\caption{An example of context-based statistical
+  encoding.\label{fig:PPM}}
+\end{figure}
+
+\section{Decoder}
+\begin{enumerate}
+\item Equal to the step 1 of the encoder.
+\item While the input is not exhausted:
+  \begin{enumerate}
+  \item $i\leftarrow k$ (except for the first symbol, where
+    $i\leftarrow 0$).
+  \item $s\leftarrow$ next decoded symbol.
+  \item While $s=\mathtt{ESC}$:
+    \begin{enumerate}
+      \item Update $p(\mathtt{ESC}|{\cal C}[i])$.
+      \item $i\leftarrow i-1$.
+      \item $s\leftarrow$ next decoded symbol.
+    \end{enumerate}
+  \item Update $p(s|{\cal C}[i])$.
+  \item While $i<k$:
+    \begin{enumerate}
+    \item $i\leftarrow i+1$.
+    \item Update $p(s|{\cal C}[i])$ (insert $s$ into the ${\cal C}[i]$
+      context).
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+% \subsection*{Ejemplo}
+% \begin{center}
+%   \resizebox{0.85\textwidth}{!}{
+%     \begin{tabular}{rrrl}
+%      Entrada &Bits & Salida & Contextos afectados\\
+%      \hline
+%      $c_{\mathtt a}[-1]$            & $8.0056$ & {\tt a} & $c[\emptyset]=\{\mathsf{ESC},3~\mathtt{a},1\}$\\
+%      $c_{\mathsf{ESC}}[\emptyset]$  & $1.5849$ &         & $c[\emptyset]=\{\mathsf{ESC},3~\mathtt{a},1\}$\\
+%      $c_{\mathtt b}[-1]$            & $8     $ & {\tt b} & $c[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},1\}, c[\emptyset]=\{\mathsf{ESC},4~\mathtt{a},1~\mathtt{b},1\}$\\
+%      $c_{\mathtt a}[\emptyset]$     & $2     $ & {\tt a} & $c[\mathtt{b}]=\{\mathsf{ESC},1~\mathtt{a},1\}, c[\emptyset]=\{\mathsf{ESC},4~\mathtt{a},2~\mathtt{b},1\}$\\
+%      $c_{\mathtt b}[\mathtt{a}]$    & $1     $ & {\tt b} & $c[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},2\}$\\
+%      $c_{\mathsf{ESC}}[\mathtt{b}]$ & $1     $ &         & $c[\mathtt{b}]=\{\mathsf{ESC},2~\mathtt{a},1\}$\\
+%      $c_{\mathsf{ESC}}[\emptyset]$  & $0.58  $ &         & $c[\emptyset]=\{\mathsf{ESC},5~\mathtt{a},2~\mathtt{b},1\}$\\
+%      $c_{\mathtt c}[-1]$            & $7.98  $ & {\tt c} & $c[\mathtt{b}]=\{\mathsf{ESC},2~\mathtt{a},1~\mathtt{c},1\}, c[\emptyset]=\{\mathsf{ESC},5~\mathtt{a},2~\mathtt{b},1~\mathtt{c},1\}$\\
+%      $c_{\mathtt b}[\emptyset]$     & $2.81  $ & {\tt b} & $c[\mathtt{c}]=\{\mathsf{ESC},1~\mathtt{b},1\}, c[\emptyset]=\{\mathsf{ESC},5~\mathtt{a},2~\mathtt{b},2~\mathtt{c},1\}$\\ 
+%      $c_{\mathtt a}[\mathtt{b}]$    & $2     $ & {\tt a} & $c[\mathtt{b}]=\{\mathsf{ESC},2~\mathtt{a},2~\mathtt{c},1\}$\\
+%      $c_{\mathtt b}[\mathtt{a}]$    & $0.58  $ & {\tt b} & $c[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},3\}$\\
+%      $c_{\mathtt a}[\mathtt{b}]$    & $1.32  $ & {\tt a} & $c[\mathtt{b}]=\{\mathsf{ESC},2~\mathtt{a},3~\mathtt{c},1\}$\\
+%      $c_{\mathtt b}[\mathtt{a}]$    & $0.42  $ & {\tt b} & $c[\mathtt{a}]=\{\mathsf{ESC},1~\mathtt{b},4\}$\\
+%      $c_{\mathtt a}[\mathtt{b}]$    & $1     $ & {\tt a} & $c[\mathtt{b}]=\{\mathsf{ESC},2~\mathtt{a},4~\mathtt{c},1\}$\\
+%      $c_{\mathsf{ESC}}[\mathtt{a}]$ & $2.32  $ &         & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4\}$\\
+%      $c_{\mathtt a}[\emptyset]$     & $1.58  $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},1\}, c[\emptyset]=\{\mathsf{ESC},5~\mathtt{a},3~\mathtt{b},2~\mathtt{c},1\}$\\
+%      $c_{\mathtt a}[\mathtt{a}]$    & $2.81  $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},2\}$\\
+%      $c_{\mathtt a}[\mathtt{a}]$    & $2     $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},3\}$\\
+%      $c_{\mathtt a}[\mathtt{a}]$    & $1.58  $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},4\}$\\
+%      $c_{\mathtt a}[\mathtt{a}]$    & $1.32  $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},5\}$\\
+%      $c_{\mathtt a}[\mathtt{a}]$    & $1.14  $ & {\tt a} & $c[\mathtt{a}]=\{\mathsf{ESC},2~\mathtt{b},4~\mathtt{a},6\}$
+%    \end{tabular}
+%  }
+%\end{center}
+% }}} }}}
+
+\section*{Let's go the the lab!}
+\begin{enumerate}
+\item
+\begin{verbatim}
+         Codec | lena boats pepers zelda Average
+---------------+--------------------------------
+             : |    :     :      :     :       :
+arith-n-c -o 1 | ....  ....   ....  ....    ....
+arith-n-c -o 2 | ....  ....   ....  ....    ....
+arith-n-c -o 3 | ....  ....   ....  ....    ....
+\end{verbatim}
+\item Check the reversibility.
+\end{enumerate}

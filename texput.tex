@@ -163,7 +163,7 @@ arith-n-c -o 0 | ....  ....   ....  ....    .... #1
   neighborhood (context).
 \item The higher the memory of the model (the context), the higher the
   accuracy of the predictions (probabilities), and therefore, the
-  lower the length of the code-words \cite{Cleary.PPM}.
+  lower the length of the code-words \cite{cleary1984data}.
 \item Let ${\cal C}[i]$ the last $i$ encoded symbols and $p(s|{\cal C}[i])$ the
   probability that the symbol $s$ follows the context ${\cal C}[i]$.
 \item Let $k$ the maximal order of the prediction (i.e. the largest
@@ -216,11 +216,6 @@ arith-n-c -o 0 | ....  ....   ....  ....    .... #1
   symbol). Therefore, there are $r=256$ probabilistic models:
   $$M[{\cal C}[1]]=\{\mathtt{ESC},1\}, 0\le {\cal C}[1]\le r.$$
 
-\item In this example (for the sake of the simplicity), the maximal
-  order of the prediction $k=1$ (we only remember the previous
-  symbol). Therefore, there are $r=256$ probabilistic models:
-  $$M[{\cal C}[1]]=\{\mathtt{ESC},1\}, 0\le {\cal C}[1]\le r.$$
-
   \begin{enumerate}
   \item [3.a] $s\leftarrow \mathtt{a}$.
   \item [3.b] $i\leftarrow 0$ (we don't know the previous symbol).
@@ -239,12 +234,13 @@ arith-n-c -o 0 | ....  ....   ....  ....    .... #1
   \begin{enumerate}
   \item [3.a] $s\leftarrow \mathtt{b}$.
   \item [3.b] $i\leftarrow 1$.
-  \item [3.c] $p(\mathtt{b}|{\cal C}[1])=0$ because ${\cal C}[1]=\mathtt{a}$ andv$M[\mathtt{a}]=\{\mathtt{ESC},1\}$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[1])=0$ because ${\cal C}[1]=\mathtt{a}$ and $M[\mathtt{a}]=\{\mathtt{ESC},1\}$.
   \item [3.c.i] Output $\leftarrow c(\mathtt{ESC}|\mathtt{a})$ with $l(c(\mathtt{ESC}|\mathtt{a}))=0$.
   \item [3.c.ii] Update $p(\mathtt{ESC})$ in $M[\mathtt{a}]$ (now, $M[a]=\{\mathtt{ESC},2\}$).
   \item [3.c.iii] Insert $\mathtt{b}$ into $M[\mathtt{a}]=\{\mathtt{ESC},2~ \mathtt{b},1\}$.
   \item [3.c.iv] $i\leftarrow 0$.
-  \item [3.c] $p(\mathtt{b}|{\cal C}[0])=0$ because $M[{\cal C}[0]]=\{\mathtt{ESC},2~\texttt{a},1\}$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[0])=0$ $M[{\cal C}[0]]=\{\mathtt{ESC},2~\mathtt{a},1\}$.
+  \item [3.c] $p(\mathtt{b}|{\cal C}[0])=0$ because $M[{\cal C}[0]]=\{\mathtt{ESC},2~\mathtt{a},1\}$.
   \item [3.c.i] Output $\leftarrow c(\mathtt{ESC}|{\cal C}[0])$, where $p(\mathtt{ESC}|{\cal C}[0]) = 2/3$.
   \item [3.c.ii] Update $p(\mathtt{ESC}|{\cal C}[0])$ (now, the count of $\mathtt{ESC}$ is $3$).
   \item [3.c.iii] Insert $\mathtt{b}$ into $M[{\cal C}[0]] = \{\mathtt{ESC},3~\mathtt{a},1~\mathtt{b},1\}$.
@@ -254,6 +250,7 @@ arith-n-c -o 0 | ....  ....   ....  ....    .... #1
       \end{enumerate}
 \end{itemize}
 
+\begin{comment}
 \begin{figure}
 \begin{center}
   \begin{tabular}{crrl}
@@ -286,6 +283,14 @@ arith-n-c -o 0 | ....  ....   ....  ....    .... #1
 \caption{An example of context-based statistical
   encoding.\label{fig:PPM}}
 \end{figure}
+\end{comment}
+\begin{figure}
+  \myfig{graphics/PPM_example}{8cm}{800} %
+  \caption{An example of context-based statistical
+  encoding.} %
+  \label{fig:PPM}
+\end{figure}
+
 
 \section{Decoder}
 \begin{enumerate}
@@ -356,3 +361,5 @@ arith-n-c -o 3 | ....  ....   ....  ....    ....
 \end{verbatim}
 \item Check the reversibility.
 \end{enumerate}
+
+\bibliography{text-compression}

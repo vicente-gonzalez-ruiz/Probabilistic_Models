@@ -26,7 +26,7 @@ class="ecrm-1200">Vicente Gonz</span><span
 class="ecrm-1200">á</span><span 
 class="ecrm-1200">lez Ruiz</span></div><br />
 <div class="date" ><span 
-class="ecrm-1200">December 31, 2019</span></div>
+class="ecrm-1200">January 7, 2020</span></div>
    </div>
    <h3 class="likesectionHead"><a 
  id="x1-1000"></a>Contents</h3>
@@ -61,14 +61,14 @@ href="#Q1-1-20">References</a></span>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
  id="x1-20001"></a>Funtionality</h3>
      <ul class="itemize1">
-     <li class="itemize">Compute the probabilities of the symbols (see Figure <span 
-class="ecbx-1000">??</span>).
+     <li class="itemize">Compute the probabilities of the symbols (see <a 
+href="https://vicente-gonzalez-ruiz.github.io/symbol_compression/#x1-20001" >Symbol Encoding</a>).
                                                                   
 
                                                                   
      </li>
      <li class="itemize">Both, the encoder and the decoder must be syncronized.</li></ul>
-<!--l. 13--><p class="noindent" >
+<!--l. 14--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
  id="x1-30002"></a>Static models</h3>
@@ -81,23 +81,23 @@ class="ecbx-1000">??</span>).
      </li>
      <li class="itemize">Static models are very common in codecs such as JPEG and MPEG (audio
      and video).</li></ul>
-<!--l. 23--><p class="noindent" >
+<!--l. 24--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
  id="x1-40002"></a>Let’s go the the lab!</h3>
-<!--l. 24--><p class="noindent" >
+<!--l. 25--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
-  class="enumerate" id="x1-4002x1">Download <a 
-href="http://www.ace.ual.es/~vruiz/doctorado/text-compression.tar.gz" class="url" ><span 
-class="ectt-1000">http://www.ace.ual.es/~vruiz/doctorado/text-compression.tar.gz</span></a>
-     and <span 
+  class="enumerate" id="x1-4002x1">Clone <a 
+href="https://github.com/vicente-gonzalez-ruiz/basic-compression-tools" class="url" ><span 
+class="ectt-1000">https://github.com/vicente-gonzalez-ruiz/basic-compression-tools</span></a>
+     and run <span 
 class="ectt-1000">make huff_s0</span>.
      </li>
      <li 
-  class="enumerate" id="x1-4004x2">Encode each image of <a 
-href="http://www.ace.ual.es/~vruiz/images/" >The Test Image Corpus</a> using the codec. Continue ﬁlling
-     the table:
+  class="enumerate" id="x1-4004x2">Encode the images of the table below that can be found at <a 
+href="http://www.hpca.ual.es/~vruiz/images/" >The Test Image
+     Corpus</a> using the codec.
                                                                   
 
                                                                   
@@ -110,12 +110,12 @@ href="http://www.ace.ual.es/~vruiz/images/" >The Test Image Corpus</a> using the
       <br />      LZW | ....  ....   ....  ....
       <br />  huff_s0 | ....  ....   ....  ....
 </div>
-     <!--l. 39--><p class="nopar" >
+     <!--l. 40--><p class="nopar" > Continue ﬁlling the table ...
      </p></li>
      <li 
   class="enumerate" id="x1-4006x3">Check that the <span 
 class="ectt-1000">huff_s0 </span>codec is lossless.</li></ol>
-<!--l. 43--><p class="noindent" >
+<!--l. 45--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
  id="x1-50003"></a>Adaptive models</h3>
@@ -127,11 +127,11 @@ class="ectt-1000">huff_s0 </span>codec is lossless.</li></ol>
      than                                    static                                    model’s
      ones, because the probabilities of the symbols are localy computed (think
      of the sequence ‘aaaaaaaaaaaaaabbbbbbbbbbbbbbb‘).</li></ul>
-<!--l. 50--><p class="noindent" >
+<!--l. 52--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
  id="x1-60004"></a>Encoding</h3>
-<!--l. 51--><p class="noindent" >
+<!--l. 53--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-6002x1">Asign the same probability to all the symbols of the source alphabet.
@@ -148,11 +148,11 @@ class="ectt-1000">huff_s0 </span>codec is lossless.</li></ol>
          <li 
   class="enumerate" id="x1-6008x2">Update (increase) its probability.</li></ol>
      </li></ol>
-<!--l. 60--><p class="noindent" >
+<!--l. 62--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
  id="x1-70005"></a>Decoding</h3>
-<!--l. 61--><p class="noindent" >
+<!--l. 63--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-7002x1">Identical to the step 1 of the encoder.
@@ -166,24 +166,14 @@ class="ectt-1000">huff_s0 </span>codec is lossless.</li></ol>
          <li 
   class="enumerate" id="x1-7008x2">Identical to the step 2.b of the encoder.</li></ol>
      </li></ol>
-<!--l. 70--><p class="noindent" >
+<!--l. 72--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
  id="x1-80005"></a>Let’s go the the lab!</h3>
-<!--l. 71--><p class="noindent" >
+<!--l. 73--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
-  class="enumerate" id="x1-8002x1">Download   <a 
-href="http://www.ace.ual.es/~vruiz/doctorado/progs.tar.gz" class="url" ><span 
-class="ectt-1000">http://www.ace.ual.es/~vruiz/doctorado/progs.tar.gz</span></a>
-     and <span 
-class="ectt-1000">make huff_a0 </span>and <span 
-class="ectt-1000">make arith_a0</span>.
-     </li>
-     <li 
-  class="enumerate" id="x1-8004x2">Encode each image of <a 
-href="http://www.ace.ual.es/~vruiz/images/" >The Test Image Corpus</a> using the codec. Continue ﬁlling
-     the table:
+  class="enumerate" id="x1-8002x1">Continue ﬁlling the table:
                                                                   
 
                                                                   
@@ -195,11 +185,11 @@ href="http://www.ace.ual.es/~vruiz/images/" >The Test Image Corpus</a> using the
       <br />  huff_a0 | ....  ....   ....  ....    ....
       <br /> arith_a0 | ....  ....   ....  ....    ....
 </div>
-     <!--l. 85--><p class="nopar" >
+     <!--l. 82--><p class="nopar" >
      </p></li>
      <li 
-  class="enumerate" id="x1-8006x3">Remember to check that both codecs are lossless.</li></ol>
-<!--l. 89--><p class="noindent" >
+  class="enumerate" id="x1-8004x2">Remember to check that both codecs are lossless.</li></ol>
+<!--l. 86--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
  id="x1-90006"></a>Initially empty models</h3>
@@ -207,7 +197,7 @@ href="http://www.ace.ual.es/~vruiz/images/" >The Test Image Corpus</a> using the
      <li class="itemize">The smaller the number of symbols used by the model, the higher the
      probabilities, and therefore, the better the compression ratios.
      </li>
-     <li class="itemize">An initially empty model only stores the <!--l. 94--><math 
+     <li class="itemize">An initially empty model only stores the <!--l. 91--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">ESC</mi></math>(cape)
      symbol (a symbol that it is used by the encoder only when a new symbol
@@ -215,14 +205,14 @@ display="inline" ><mi mathvariant="monospace">ESC</mi></math>(cape)
      models).
      </li>
      <li class="itemize">We assume that arithmetic coding is used and therefore, when we input or
-     output <!--l. 98--><math 
+     output <!--l. 95--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >c</mi><mrow ><mo 
 class="MathClass-open">(</mo><mrow><mi 
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>,
-     we are transmitting <!--l. 98--><math 
+     we are transmitting <!--l. 95--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >I</mi><mrow ><mo 
@@ -230,24 +220,24 @@ class="MathClass-open">(</mo><mrow><mi
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
      bits of code.</li></ul>
-<!--l. 101--><p class="noindent" >
+<!--l. 98--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
  id="x1-100007"></a>Encoder</h3>
-<!--l. 102--><p class="noindent" >
+<!--l. 99--><p class="noindent" >
                                                                   
 
                                                                   
      </p><ol  class="enumerate1" >
      <li 
-  class="enumerate" id="x1-10002x1">Set the probability of the <!--l. 103--><math 
+  class="enumerate" id="x1-10002x1">Set the probability of the <!--l. 100--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">ESC</mi></math>
-     symbol to <!--l. 103--><math 
+     symbol to <!--l. 100--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mn>1</mn><mo 
 class="MathClass-punc">.</mo><mn>0</mn></math>
-     (and the probability of the rest of the symbols to <!--l. 104--><math 
+     (and the probability of the rest of the symbols to <!--l. 101--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mn>0</mn><mo 
 class="MathClass-punc">.</mo><mn>0</mn></math>).
@@ -256,7 +246,7 @@ class="MathClass-punc">.</mo><mn>0</mn></math>).
   class="enumerate" id="x1-10004x2">While the input is not exhausted:
          <ol  class="enumerate2" >
          <li 
-  class="enumerate" id="x1-10006x1"><!--l. 107--><math 
+  class="enumerate" id="x1-10006x1"><!--l. 104--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
@@ -264,14 +254,14 @@ class="MathClass-rel">←</mo></math>
          next symbol.
          </li>
          <li 
-  class="enumerate" id="x1-10008x2">If <!--l. 108--><math 
+  class="enumerate" id="x1-10008x2">If <!--l. 105--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
          has been found before, then:
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-10010x1">Output <!--l. 110--><math 
+  class="enumerate" id="x1-10010x1">Output <!--l. 107--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >c</mi><mrow ><mo 
@@ -284,7 +274,7 @@ class="MathClass-close">)</mo></mrow></math>
   class="enumerate" id="x1-10012x3">Else:
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-10014x1">Output <!--l. 114--><math 
+  class="enumerate" id="x1-10014x1">Output <!--l. 111--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >c</mi><mrow ><mo 
@@ -292,13 +282,13 @@ class="MathClass-open">(</mo><mrow><mi mathvariant="monospace">ESC</mi></mrow><m
 class="MathClass-close">)</mo></mrow></math>.
              </li>
              <li 
-  class="enumerate" id="x1-10016x2">Output a raw symbol <!--l. 115--><math 
+  class="enumerate" id="x1-10016x2">Output a raw symbol <!--l. 112--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>.</li></ol>
          </li>
          <li 
-  class="enumerate" id="x1-10018x4">Update <!--l. 117--><math 
+  class="enumerate" id="x1-10018x4">Update <!--l. 114--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -306,11 +296,11 @@ class="MathClass-open">(</mo><mrow><mi
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>.</li></ol>
      </li></ol>
-<!--l. 121--><p class="noindent" >
+<!--l. 118--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
  id="x1-110008"></a>Decoder</h3>
-<!--l. 122--><p class="noindent" >
+<!--l. 119--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-11002x1">Identical to the step 1 of the encoder.
@@ -319,7 +309,7 @@ class="MathClass-close">)</mo></mrow></math>.</li></ol>
   class="enumerate" id="x1-11004x2">While the input is not exhausted:
          <ol  class="enumerate2" >
          <li 
-  class="enumerate" id="x1-11006x1"><!--l. 126--><math 
+  class="enumerate" id="x1-11006x1"><!--l. 123--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >c</mi><mrow ><mo 
@@ -330,7 +320,7 @@ class="MathClass-rel">←</mo></math>
          next code-word.
          </li>
          <li 
-  class="enumerate" id="x1-11008x2">Decode <!--l. 127--><math 
+  class="enumerate" id="x1-11008x2">Decode <!--l. 124--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>.
@@ -339,7 +329,7 @@ display="inline" ><mi
                                                                   
          </li>
          <li 
-  class="enumerate" id="x1-11010x3">If <!--l. 128--><math 
+  class="enumerate" id="x1-11010x3">If <!--l. 125--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
@@ -347,13 +337,13 @@ class="MathClass-rel">=</mo> <mi mathvariant="monospace">ESC</mi></math>,
          then:
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-11012x1">Input a raw symbol <!--l. 130--><math 
+  class="enumerate" id="x1-11012x1">Input a raw symbol <!--l. 127--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>.</li></ol>
          </li>
          <li 
-  class="enumerate" id="x1-11014x4">Update <!--l. 132--><math 
+  class="enumerate" id="x1-11014x4">Update <!--l. 129--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -362,16 +352,16 @@ class="MathClass-open">(</mo><mrow><mi
 class="MathClass-close">)</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-11016x5">Output <!--l. 133--><math 
+  class="enumerate" id="x1-11016x5">Output <!--l. 130--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>.</li></ol>
      </li></ol>
-<!--l. 137--><p class="noindent" >
+<!--l. 134--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
  id="x1-120008"></a>Let’s go the the lab!</h3>
-<!--l. 138--><p class="noindent" >
+<!--l. 135--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-12002x1"><span 
@@ -399,11 +389,11 @@ class="ectt-1000">make arith-n-d</span>.
       <br />
       <br />#3 -&#x003E; Similar to LZ77 + ahuff_0
 </div>
-     <!--l. 156--><p class="nopar" >
+     <!--l. 153--><p class="nopar" >
      </p></li>
      <li 
   class="enumerate" id="x1-12006x3">Check the reversibility.</li></ol>
-<!--l. 160--><p class="noindent" >
+<!--l. 157--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">9   </span> <a 
  id="x1-130009"></a>Models with memory</h3>
@@ -416,18 +406,18 @@ class="ectt-1000">make arith-n-d</span>.
      the code-words <span class="cite">[<a 
 href="#Xcleary1984data">1</a>]</span>.
      </li>
-     <li class="itemize">Let <!--l. 167--><math 
+     <li class="itemize">Let <!--l. 164--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow><mi 
 >i</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-     the last <!--l. 167--><math 
+     the last <!--l. 164--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi></math>
-     encoded symbols and <!--l. 167--><math 
+     encoded symbols and <!--l. 164--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -439,11 +429,11 @@ class="MathClass-open">[</mo><mrow><mi
 >i</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-     the probability that the symbol <!--l. 168--><math 
+     the probability that the symbol <!--l. 165--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
-     follows the context <!--l. 168--><math 
+     follows the context <!--l. 165--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
@@ -454,18 +444,18 @@ class="MathClass-close">]</mo></mrow></math>.
 
                                                                   
      </li>
-     <li class="itemize">Let <!--l. 169--><math 
+     <li class="itemize">Let <!--l. 166--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >k</mi></math>
      the maximal order of the prediction (i.e. the largest number of symbols of
-     <!--l. 170--><math 
+     <!--l. 167--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-     that are going to be used as the actual context). Notice that <!--l. 171--><math 
+     that are going to be used as the actual context). Notice that <!--l. 168--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
@@ -476,14 +466,14 @@ class="MathClass-ord">∅</mo></math>
      and the model has no memory.
      </li>
      <li class="itemize">We suppose that arithmetic coding is used and therefore, when we input or
-     output <!--l. 174--><math 
+     output <!--l. 171--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >c</mi><mrow ><mo 
 class="MathClass-open">(</mo><mrow><mi 
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>,
-     we are transmitting <!--l. 174--><math 
+     we are transmitting <!--l. 171--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >I</mi><mrow ><mo 
@@ -492,19 +482,19 @@ class="MathClass-open">(</mo><mrow><mi
 class="MathClass-close">)</mo></mrow></math>
      bits of code.
      </li>
-     <li class="itemize">Let <!--l. 175--><math 
+     <li class="itemize">Let <!--l. 172--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >r</mi></math>
      the size of the source alphabet.</li></ul>
-<!--l. 178--><p class="noindent" >
+<!--l. 175--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">10   </span> <a 
  id="x1-1400010"></a>Encoder</h3>
-<!--l. 179--><p class="noindent" >
+<!--l. 176--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
-  class="enumerate" id="x1-14002x1">Create an empty model for every possible context of length <!--l. 180--><math 
+  class="enumerate" id="x1-14002x1">Create an empty model for every possible context of length <!--l. 177--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mn>0</mn> <mo 
 class="MathClass-rel">≤</mo> <mi 
@@ -513,7 +503,7 @@ class="MathClass-rel">≤</mo> <mi
 >k</mi></math>.
      </li>
      <li 
-  class="enumerate" id="x1-14004x2">Create an non-empty model for <!--l. 181--><math 
+  class="enumerate" id="x1-14004x2">Create an non-empty model for <!--l. 178--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >k</mi> <mo 
@@ -524,12 +514,12 @@ class="MathClass-bin">−</mo><mn>1</mn></math>.
   class="enumerate" id="x1-14006x3">While the input is not exhausted:
          <ol  class="enumerate2" >
          <li 
-  class="enumerate" id="x1-14008x1"><!--l. 184--><math 
+  class="enumerate" id="x1-14008x1"><!--l. 181--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
 class="MathClass-rel">←</mo></math>
-         Input <!--l. 184--><math 
+         Input <!--l. 181--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><msub><mrow 
 ><mo class="qopname">log</mo><!--nolimits--></mrow><mrow 
@@ -541,34 +531,34 @@ class="MathClass-close">)</mo></mrow></math>
          bits. # Input a symbol.
          </li>
          <li 
-  class="enumerate" id="x1-14010x2"><!--l. 185--><math 
+  class="enumerate" id="x1-14010x2"><!--l. 182--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mi 
 >k</mi></math>
-         (except for the ﬁrst symbol, where <!--l. 186--><math 
+         (except for the ﬁrst symbol, where <!--l. 183--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mn>0</mn></math>).
          </li>
          <li 
-  class="enumerate" id="x1-14012x3"><!--l. 187--><math 
+  class="enumerate" id="x1-14012x3"><!--l. 184--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mi 
 >k</mi></math>
          (except for the ﬁrst symbol, where
-         <!--l. 188--><math 
+         <!--l. 185--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mn>0</mn></math>):
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-14014x1">Output <!--l. 190--><math 
+  class="enumerate" id="x1-14014x1">Output <!--l. 187--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -586,7 +576,7 @@ class="MathClass-close">)</mo></mrow></math>.
                                                                   
              </li>
              <li 
-  class="enumerate" id="x1-14016x2">Update <!--l. 191--><math 
+  class="enumerate" id="x1-14016x2">Update <!--l. 188--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -600,7 +590,7 @@ class="MathClass-close">]</mo></mrow></mrow><mo
 class="MathClass-close">)</mo></mrow></math>.
              </li>
              <li 
-  class="enumerate" id="x1-14018x3">Update <!--l. 192--><math 
+  class="enumerate" id="x1-14018x3">Update <!--l. 189--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -612,11 +602,11 @@ class="MathClass-open">[</mo><mrow><mi
 >i</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-             (insert <!--l. 192--><math 
+             (insert <!--l. 189--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
-             into the <!--l. 192--><math 
+             into the <!--l. 189--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
@@ -626,7 +616,7 @@ class="MathClass-close">]</mo></mrow></math>
              context).
              </li>
              <li 
-  class="enumerate" id="x1-14020x4"><!--l. 193--><math 
+  class="enumerate" id="x1-14020x4"><!--l. 190--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -635,7 +625,7 @@ class="MathClass-rel">←</mo> <mi
 class="MathClass-bin">−</mo> <mn>1</mn></math>.</li></ol>
          </li>
          <li 
-  class="enumerate" id="x1-14022x4">Output <!--l. 195--><math 
+  class="enumerate" id="x1-14022x4">Output <!--l. 192--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -649,12 +639,12 @@ class="MathClass-open">[</mo><mrow><mi
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>.
          The symbols that were found in the models for contexts with order
-         <!--l. 196--><math 
+         <!--l. 193--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">&#x003E;</mo> <mi 
 >i</mi></math> must be excluded
-         of the actual (<!--l. 196--><math 
+         of the actual (<!--l. 193--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
@@ -662,19 +652,19 @@ class="MathClass-open">[</mo><mrow><mi
 >i</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>)
          context-model because, for sure,
-         <!--l. 196--><math 
+         <!--l. 193--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
          is not any of them.
          </li>
          <li 
-  class="enumerate" id="x1-14024x5">If <!--l. 197--><math 
+  class="enumerate" id="x1-14024x5">If <!--l. 194--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">≥</mo> <mn>0</mn></math>,
-         update <!--l. 197--><math 
+         update <!--l. 194--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -687,19 +677,19 @@ class="MathClass-open">[</mo><mrow><mi
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>.</li></ol>
      </li></ol>
-<!--l. 201--><p class="noindent" >
+<!--l. 198--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
  id="x1-1500010"></a>Example</h3>
      <ul class="itemize1">
-     <li class="itemize">Let <!--l. 203--><math 
+     <li class="itemize">Let <!--l. 200--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >r</mi> <mo 
 class="MathClass-rel">=</mo> <mn>2</mn><mn>5</mn><mn>6</mn></math>
      the size of the source alphabet.
      </li>
-     <li class="itemize">The probabilistic model <!--l. 204--><math 
+     <li class="itemize">The probabilistic model <!--l. 201--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -709,21 +699,21 @@ class="MathClass-open">[</mo><mrow><mo
 class="MathClass-bin">−</mo><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-     (for the special context <!--l. 205--><math 
+     (for the special context <!--l. 202--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow><mo 
 class="MathClass-bin">−</mo><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>)
-     is static, non empty and has an special symbol <!--l. 205--><math 
+     is static, non empty and has an special symbol <!--l. 202--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">EOF</mi></math>
      (End Of File) that is going to be used when the compression has ﬁnished:
                                                                   
 
                                                                   
-     <!--tex4ht:inline--><!--l. 208--><math 
+     <!--tex4ht:inline--><!--l. 205--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="block" >
                      <mi 
@@ -749,7 +739,7 @@ class="MathClass-rel">=</mo> <mi
 >A</mi><mo 
 class="MathClass-punc">.</mo>
 </math>
-     <!--l. 208--><p class="nopar" > In a pair <!--l. 209--><math 
+     <!--l. 205--><p class="nopar" > In a pair <!--l. 206--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow ><mo 
 class="MathClass-open">(</mo><mrow><mi 
@@ -757,21 +747,21 @@ class="MathClass-open">(</mo><mrow><mi
 class="MathClass-punc">,</mo><mi 
 >b</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>,
-     <!--l. 209--><math 
+     <!--l. 206--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >a</mi></math>
-     is the symbol and <!--l. 209--><math 
+     is the symbol and <!--l. 206--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >b</mi></math>
-     is its probability (represented by a counter of ocurrences of <!--l. 209--><math 
+     is its probability (represented by a counter of ocurrences of <!--l. 206--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
      in the processed input until that moment).
      </p></li>
-     <li class="itemize"><!--l. 211--><math 
+     <li class="itemize"><!--l. 208--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -781,7 +771,7 @@ class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
      is adaptative and empty:
-     <!--tex4ht:inline--><!--l. 212--><math 
+     <!--tex4ht:inline--><!--l. 209--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="block" >
                                        <mi 
@@ -797,15 +787,15 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow><mo 
 class="MathClass-punc">.</mo>
 </math>
-     <!--l. 212--><p class="nopar" >
+     <!--l. 209--><p class="nopar" >
      </p></li>
      <li class="itemize">In this example (for the sake of the simplicity), the maximal order of the
-     prediction <!--l. 215--><math 
+     prediction <!--l. 212--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >k</mi> <mo 
 class="MathClass-rel">=</mo> <mn>1</mn></math>
-     (we only remember the previous symbol). Therefore, there are <!--l. 216--><math 
+     (we only remember the previous symbol). Therefore, there are <!--l. 213--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >r</mi> <mo 
@@ -814,7 +804,7 @@ class="MathClass-rel">=</mo> <mn>2</mn><mn>5</mn><mn>6</mn></math>
                                                                   
 
                                                                   
-     <!--tex4ht:inline--><!--l. 217--><math 
+     <!--tex4ht:inline--><!--l. 214--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="block" >
                                <mi 
@@ -837,18 +827,18 @@ class="MathClass-rel">≤</mo> <mi
 >r</mi><mo 
 class="MathClass-punc">.</mo>
 </math>
-     <!--l. 217--><p class="nopar" >
-     </p><!--l. 219--><p class="noindent" >
+     <!--l. 214--><p class="nopar" >
+     </p><!--l. 216--><p class="noindent" >
          </p><ol  class="enumerate1" >
          <li 
-  class="enumerate" id="x1-15001x10"><!--l. 220--><math 
+  class="enumerate" id="x1-15001x10"><!--l. 217--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
 class="MathClass-rel">←</mo><mi mathvariant="monospace">a</mi></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15002x10"><!--l. 221--><math 
+  class="enumerate" id="x1-15002x10"><!--l. 218--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -856,7 +846,7 @@ class="MathClass-rel">←</mo> <mn>0</mn></math>
          (we don’t know the previous symbol).
          </li>
          <li 
-  class="enumerate" id="x1-15003x10"><!--l. 222--><math 
+  class="enumerate" id="x1-15003x10"><!--l. 219--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -867,7 +857,7 @@ class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow> <mo 
 class="MathClass-rel">=</mo> <mn>0</mn></math>
-         (the context <!--l. 222--><math 
+         (the context <!--l. 219--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -876,10 +866,10 @@ class="MathClass-open">[</mo><mrow><mi
 class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-         has only the <!--l. 222--><math 
+         has only the <!--l. 219--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">ESC</mi></math>
-         symbol, <!--l. 222--><math 
+         symbol, <!--l. 219--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -894,7 +884,7 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>).
          </li>
          <li 
-  class="enumerate" id="x1-15004x10">Output <!--l. 223--><math 
+  class="enumerate" id="x1-15004x10">Output <!--l. 220--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -905,7 +895,7 @@ mathvariant="bold-script">𝒞</mi><mrow ><mo
 class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         (in fact, zero bits because <!--l. 224--><math 
+         (in fact, zero bits because <!--l. 221--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >l</mi><mrow ><mo 
@@ -921,7 +911,7 @@ class="MathClass-close">)</mo></mrow> <mo
 class="MathClass-rel">=</mo> <mn>0</mn></math>).
          </li>
          <li 
-  class="enumerate" id="x1-15005x10">Update <!--l. 225--><math 
+  class="enumerate" id="x1-15005x10">Update <!--l. 222--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -931,7 +921,7 @@ mathvariant="bold-script">𝒞</mi><mrow ><mo
 class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         (now, <!--l. 225--><math 
+         (now, <!--l. 222--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -946,10 +936,10 @@ class="MathClass-punc">,</mo><mn>2</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>).
          </li>
          <li 
-  class="enumerate" id="x1-15006x10">[3.C.c] Insert symbol <!--l. 226--><math 
+  class="enumerate" id="x1-15006x10">[3.C.c] Insert symbol <!--l. 223--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">a</mi></math>
-         into <!--l. 227--><math 
+         into <!--l. 224--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -971,7 +961,7 @@ class="MathClass-close">}</mo></mrow></math>.
   class="enumerate" id="x1-15008x10">
          </li>
          <li 
-  class="enumerate" id="x1-15009x10"><!--l. 229--><math 
+  class="enumerate" id="x1-15009x10"><!--l. 226--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -985,7 +975,7 @@ class="MathClass-close">)</mo></mrow><mo
 class="MathClass-rel">≠</mo><mn>0</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15010x10">Output <!--l. 230--><math 
+  class="enumerate" id="x1-15010x10">Output <!--l. 227--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -997,7 +987,7 @@ class="MathClass-open">[</mo><mrow><mo
 class="MathClass-bin">−</mo><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         where <!--l. 231--><math 
+         where <!--l. 228--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1018,7 +1008,7 @@ class="MathClass-close">)</mo></mrow></math>.</li></ol>
 class="ectt-1000">b</span>):
          <ol  class="enumerate1" >
          <li 
-  class="enumerate" id="x1-15011x10"><!--l. 235--><math 
+  class="enumerate" id="x1-15011x10"><!--l. 232--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
@@ -1028,14 +1018,14 @@ class="MathClass-rel">←</mo><mi mathvariant="monospace">b</mi></math>.
                                                                   
          </li>
          <li 
-  class="enumerate" id="x1-15012x10"><!--l. 236--><math 
+  class="enumerate" id="x1-15012x10"><!--l. 233--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mn>1</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15013x10"><!--l. 237--><math 
+  class="enumerate" id="x1-15013x10"><!--l. 234--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1046,14 +1036,14 @@ class="MathClass-open">[</mo><mrow><mn>1</mn></mrow><mo
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow> <mo 
 class="MathClass-rel">=</mo> <mn>0</mn></math>
-         because <!--l. 237--><math 
+         because <!--l. 234--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow> <mo 
 class="MathClass-rel">=</mo> <mi mathvariant="monospace">a</mi></math>
-         and <!--l. 237--><math 
+         and <!--l. 234--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1065,7 +1055,7 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15014x10">Output <!--l. 238--><math 
+  class="enumerate" id="x1-15014x10">Output <!--l. 235--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -1073,7 +1063,7 @@ class="MathClass-rel">←</mo> <mi
 class="MathClass-open">(</mo><mrow><mi mathvariant="monospace">ESC</mi><mo 
 class="MathClass-rel">|</mo><mi mathvariant="monospace">a</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         with <!--l. 238--><math 
+         with <!--l. 235--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >l</mi><mrow ><mo 
@@ -1086,19 +1076,19 @@ class="MathClass-close">)</mo></mrow> <mo
 class="MathClass-rel">=</mo> <mn>0</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15015x10">Update <!--l. 239--><math 
+  class="enumerate" id="x1-15015x10">Update <!--l. 236--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
 class="MathClass-open">(</mo><mrow><mi mathvariant="monospace">ESC</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         in <!--l. 239--><math 
+         in <!--l. 236--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow><mi mathvariant="monospace">a</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-         (now, <!--l. 239--><math 
+         (now, <!--l. 236--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1111,10 +1101,10 @@ class="MathClass-punc">,</mo><mn>2</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>).
          </li>
          <li 
-  class="enumerate" id="x1-15016x10">Insert <!--l. 240--><math 
+  class="enumerate" id="x1-15016x10">Insert <!--l. 237--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">b</mi></math>
-         into <!--l. 240--><math 
+         into <!--l. 237--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1127,14 +1117,14 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15017x10"><!--l. 241--><math 
+  class="enumerate" id="x1-15017x10"><!--l. 238--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mn>0</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15018x10"><!--l. 242--><math 
+  class="enumerate" id="x1-15018x10"><!--l. 239--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1145,7 +1135,7 @@ class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow> <mo 
 class="MathClass-rel">=</mo> <mn>0</mn></math>
-         <!--l. 242--><math 
+         <!--l. 239--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1161,7 +1151,7 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15019x10"><!--l. 243--><math 
+  class="enumerate" id="x1-15019x10"><!--l. 240--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1172,7 +1162,7 @@ class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow> <mo 
 class="MathClass-rel">=</mo> <mn>0</mn></math>
-         because <!--l. 243--><math 
+         because <!--l. 240--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1188,7 +1178,7 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15020x10">Output <!--l. 244--><math 
+  class="enumerate" id="x1-15020x10">Output <!--l. 241--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -1199,7 +1189,7 @@ mathvariant="bold-script">𝒞</mi><mrow ><mo
 class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>,
-         where <!--l. 244--><math 
+         where <!--l. 241--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1213,7 +1203,7 @@ class="MathClass-rel">=</mo> <mn>2</mn><mo
 class="MathClass-bin">∕</mo><mn>3</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15021x10">Update <!--l. 245--><math 
+  class="enumerate" id="x1-15021x10">Update <!--l. 242--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1223,18 +1213,18 @@ mathvariant="bold-script">𝒞</mi><mrow ><mo
 class="MathClass-open">[</mo><mrow><mn>0</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         (now, the count of <!--l. 245--><math 
+         (now, the count of <!--l. 242--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">ESC</mi></math>
-         is <!--l. 245--><math 
+         is <!--l. 242--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mn>3</mn></math>).
          </li>
          <li 
-  class="enumerate" id="x1-15022x10">Insert <!--l. 246--><math 
+  class="enumerate" id="x1-15022x10">Insert <!--l. 243--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">b</mi></math>
-         into <!--l. 246--><math 
+         into <!--l. 243--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >M</mi><mrow ><mo 
@@ -1251,7 +1241,7 @@ class="MathClass-punc">,</mo><mn>1</mn></mrow><mo
 class="MathClass-close">}</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15023x10"><!--l. 247--><math 
+  class="enumerate" id="x1-15023x10"><!--l. 244--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -1259,7 +1249,7 @@ class="MathClass-rel">←</mo><mo
 class="MathClass-bin">−</mo><mn>1</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15024x10"><!--l. 248--><math 
+  class="enumerate" id="x1-15024x10"><!--l. 245--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1273,7 +1263,7 @@ class="MathClass-close">)</mo></mrow><mo
 class="MathClass-rel">≠</mo><mn>0</mn></math>.
          </li>
          <li 
-  class="enumerate" id="x1-15025x10">Output <!--l. 249--><math 
+  class="enumerate" id="x1-15025x10">Output <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" > <mo 
 class="MathClass-rel">←</mo> <mi 
@@ -1285,7 +1275,7 @@ class="MathClass-open">[</mo><mrow><mo
 class="MathClass-bin">−</mo><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-         where <!--l. 249--><math 
+         where <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1299,23 +1289,23 @@ class="MathClass-close">)</mo></mrow> <mo
 class="MathClass-rel">=</mo> <mn>1</mn><mo 
 class="MathClass-bin">∕</mo><mi 
 >r</mi></math>.
-         The symbol <!--l. 249--><math 
+         The symbol <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">a</mi></math>
                                                                   
 
                                                                   
-         has been excluded of the calculus of the probability of <!--l. 249--><math 
+         has been excluded of the calculus of the probability of <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">b</mi></math>
-         for context <!--l. 249--><math 
+         for context <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >C</mi><mrow ><mo 
 class="MathClass-open">[</mo><mrow><mo 
 class="MathClass-bin">−</mo><mn>1</mn></mrow><mo 
 class="MathClass-close">]</mo></mrow></math>
-         because <!--l. 249--><math 
+         because <!--l. 246--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi mathvariant="monospace">a</mi> <mo 
 class="MathClass-rel">∈</mo> <mi 
@@ -1342,7 +1332,7 @@ class="MathClass-close">}</mo></mrow></math>.</li></ol>
                                                                   
 
                                                                   
-<!--l. 288--><p class="noindent" ><div style="text-align:center;"> <img width=800 src="graphics/PPM_example.svg" /> </div> 
+<!--l. 285--><p class="noindent" ><div style="text-align:center;"> <img width=800 src="graphics/PPM_example.svg" /> </div> 
 <br /> </p><div class="caption" 
 ><span class="id">Figure 1: </span><span  
 class="content">An example of context-based statistical encoding.</span></div><!--tex4ht:label?: x1-150261 -->
@@ -1352,7 +1342,7 @@ class="content">An example of context-based statistical encoding.</span></div><!
    </div><hr class="endfigure" />
    <h3 class="sectionHead"><span class="titlemark">11   </span> <a 
  id="x1-1600011"></a>Decoder</h3>
-<!--l. 296--><p class="noindent" >
+<!--l. 293--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-16002x1">Equal to the step 1 of the encoder.
@@ -1361,20 +1351,20 @@ class="content">An example of context-based statistical encoding.</span></div><!
   class="enumerate" id="x1-16004x2">While the input is not exhausted:
          <ol  class="enumerate2" >
          <li 
-  class="enumerate" id="x1-16006x1"><!--l. 300--><math 
+  class="enumerate" id="x1-16006x1"><!--l. 297--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mi 
 >k</mi></math>
-         (except for the ﬁrst symbol, where <!--l. 301--><math 
+         (except for the ﬁrst symbol, where <!--l. 298--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
 class="MathClass-rel">←</mo> <mn>0</mn></math>).
          </li>
          <li 
-  class="enumerate" id="x1-16008x2"><!--l. 302--><math 
+  class="enumerate" id="x1-16008x2"><!--l. 299--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
@@ -1382,14 +1372,14 @@ class="MathClass-rel">←</mo></math>
          next decoded symbol.
          </li>
          <li 
-  class="enumerate" id="x1-16010x3">While <!--l. 303--><math 
+  class="enumerate" id="x1-16010x3">While <!--l. 300--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
 class="MathClass-rel">=</mo> <mi mathvariant="monospace">ESC</mi></math>:
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-16012x1">Update <!--l. 305--><math 
+  class="enumerate" id="x1-16012x1">Update <!--l. 302--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1402,7 +1392,7 @@ class="MathClass-close">]</mo></mrow></mrow><mo
 class="MathClass-close">)</mo></mrow></math>.
              </li>
              <li 
-  class="enumerate" id="x1-16014x2"><!--l. 306--><math 
+  class="enumerate" id="x1-16014x2"><!--l. 303--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -1411,7 +1401,7 @@ class="MathClass-rel">←</mo> <mi
 class="MathClass-bin">−</mo> <mn>1</mn></math>.
              </li>
              <li 
-  class="enumerate" id="x1-16016x3"><!--l. 307--><math 
+  class="enumerate" id="x1-16016x3"><!--l. 304--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi> <mo 
@@ -1419,7 +1409,7 @@ class="MathClass-rel">←</mo></math>
              next decoded symbol.</li></ol>
          </li>
          <li 
-  class="enumerate" id="x1-16018x4">Update <!--l. 309--><math 
+  class="enumerate" id="x1-16018x4">Update <!--l. 306--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1433,7 +1423,7 @@ class="MathClass-close">]</mo></mrow></mrow><mo
 class="MathClass-close">)</mo></mrow></math>.
          </li>
          <li 
-  class="enumerate" id="x1-16020x5">While <!--l. 310--><math 
+  class="enumerate" id="x1-16020x5">While <!--l. 307--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -1441,7 +1431,7 @@ class="MathClass-rel">&#x003C;</mo> <mi
 >k</mi></math>:
              <ol  class="enumerate3" >
              <li 
-  class="enumerate" id="x1-16022x1"><!--l. 312--><math 
+  class="enumerate" id="x1-16022x1"><!--l. 309--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >i</mi> <mo 
@@ -1450,7 +1440,7 @@ class="MathClass-rel">←</mo> <mi
 class="MathClass-bin">+</mo> <mn>1</mn></math>.
              </li>
              <li 
-  class="enumerate" id="x1-16024x2">Update <!--l. 313--><math 
+  class="enumerate" id="x1-16024x2">Update <!--l. 310--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >p</mi><mrow ><mo 
@@ -1462,11 +1452,11 @@ class="MathClass-open">[</mo><mrow><mi
 >i</mi></mrow><mo 
 class="MathClass-close">]</mo></mrow></mrow><mo 
 class="MathClass-close">)</mo></mrow></math>
-             (insert <!--l. 313--><math 
+             (insert <!--l. 310--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 >s</mi></math>
-             into the <!--l. 313--><math 
+             into the <!--l. 310--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mi 
 mathvariant="bold-script">𝒞</mi><mrow ><mo 
@@ -1479,11 +1469,11 @@ class="MathClass-close">]</mo></mrow></math>
                                                                   
 
                                                                   
-<!--l. 351--><p class="noindent" >
+<!--l. 348--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
  id="x1-1700011"></a>Let’s go the the lab!</h3>
-<!--l. 352--><p class="noindent" >
+<!--l. 349--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
   class="enumerate" id="x1-17002x1">
@@ -1498,7 +1488,7 @@ class="MathClass-close">]</mo></mrow></math>
       <br />arith-n-c -o 2 | ....  ....   ....  ....    ....
       <br />arith-n-c -o 3 | ....  ....   ....  ....    ....
 </div>
-     <!--l. 361--><p class="nopar" >
+     <!--l. 358--><p class="nopar" >
      </p></li>
      <li 
   class="enumerate" id="x1-17004x2">Check the reversibility.</li></ol>
